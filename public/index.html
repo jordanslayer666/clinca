@@ -4,110 +4,314 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clínica Jordan - Inicio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
   <style>
+    :root {
+      --primary: #1977cc;
+      --secondary: #3291e6;
+      --dark: #2c4964;
+    }
+    
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: "Open Sans", sans-serif;
+      color: #444444;
     }
-    .hero-section {
-      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
-      color: white;
-      padding: 100px 0;
+
+    a {
+      text-decoration: none;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: "Raleway", sans-serif;
+    }
+
+    /* Top Bar */
+    #topbar {
+      background: #1977cc;
+      color: #fff;
+      height: 40px;
+      font-size: 14px;
+      transition: all 0.5s;
+      z-index: 996;
+    }
+    #topbar .contact-info i {
+      font-style: normal;
+      color: #fff;
+    }
+    #topbar .contact-info i a, #topbar .contact-info i span {
+      padding-left: 5px;
+      color: #fff;
+    }
+    #topbar .social-links a {
+      color: rgba(255, 255, 255, 0.7);
+      padding: 4px 12px;
+      display: inline-block;
+      line-height: 1px;
+      transition: 0.3s;
+    }
+    #topbar .social-links a:hover {
+      color: #fff;
+    }
+
+    /* Header */
+    #header {
+      background: #fff;
+      transition: all 0.5s;
+      z-index: 997;
+      padding: 15px 0;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    #header .logo h1 {
+      font-size: 30px;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-family: "Poppins", sans-serif;
+    }
+    #header .logo h1 a {
+      color: var(--dark);
+    }
+
+    /* Navbar */
+    .navbar a, .navbar a:focus {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0 10px 30px;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      color: var(--dark);
+      white-space: nowrap;
+      transition: 0.3s;
+    }
+    .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
+      color: var(--primary);
+    }
+    .navbar .active {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 8px;
+    }
+    
+    .appointment-btn {
+      margin-left: 25px;
+      background: var(--primary);
+      color: #fff !important;
+      border-radius: 50px;
+      padding: 8px 25px !important;
+      white-space: nowrap;
+      transition: 0.3s;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .appointment-btn:hover {
+      background: #166ab5;
+      color: #fff;
+    }
+
+    /* Hero Section */
+    #hero {
+      width: 100%;
+      height: 90vh;
+      background: url("https://images.unsplash.com/photo-1638202993928-7267aad84c31?q=80&w=1920&auto=format&fit=crop") top center;
+      background-size: cover;
+      position: relative;
+      margin-bottom: -200px;
+    }
+    #hero .container {
+      position: relative;
+      padding-top: 130px;
+    }
+    #hero::before {
+      content: "";
+      background: rgba(255, 255, 255, 0.85);
+      background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    #hero h1 {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 56px;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+    #hero h2 {
+      color: #444444;
+      margin: 10px 0 0 0;
+      font-size: 24px;
+    }
+
+    /* Why Us Section */
+    .why-us .container {
+      position: relative;
+      z-index: 10;
+    }
+    .why-us .content {
+      padding: 40px;
+      background: var(--primary);
+      border-radius: 4px;
+      color: #fff;
+    }
+    .why-us .content h3 {
+      font-weight: 700;
+      font-size: 34px;
+      margin-bottom: 30px;
+    }
+    .why-us .content p {
+      margin-bottom: 30px;
+    }
+    .why-us .content .more-btn {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 30px 10px 30px;
+      color: #fff;
+      border-radius: 50px;
+      transition: all ease-in-out 0.4s;
+    }
+    .why-us .content .more-btn:hover {
+      color: var(--primary);
+      background: #fff;
+    }
+    .why-us .icon-boxes .icon-box {
       text-align: center;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+      padding: 40px 30px;
+      width: 100%;
+      height: 100%;
     }
-    .hero-section h1 {
-      font-weight: 800;
-      font-size: 3.5rem;
-      margin-bottom: 20px;
+    .why-us .icon-boxes .icon-box i {
+      font-size: 40px;
+      color: var(--primary);
+      margin-bottom: 30px;
     }
-    .hero-section p {
-      font-size: 1.25rem;
-      margin-bottom: 40px;
+    .why-us .icon-boxes .icon-box h4 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 30px 0;
+      color: var(--dark);
     }
-    .feature-icon {
-      font-size: 3rem;
-      color: #0d6efd;
-      margin-bottom: 1rem;
-    }
-    .footer {
-      background-color: #f8f9fa;
-      padding: 40px 0;
-      text-align: center;
-      margin-top: 50px;
+    .why-us .icon-boxes .icon-box p {
+      font-size: 15px;
+      color: #848484;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold text-primary" href="#">
-        <i class="fa-solid fa-staff-snake me-2"></i> Clínica Jordan
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#servicios">Servicios</a>
-          </li>
-          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-            <a class="btn btn-primary px-4 rounded-pill" href="portal.html">Ingresar al Portal</a>
-          </li>
-        </ul>
+  <!-- Top Bar -->
+  <div id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="fa-regular fa-envelope"><a href="mailto:contact@clinicajordan.com">contact@clinicajordan.com</a></i>
+        <i class="fa-solid fa-mobile-screen-button ms-4"><span>+1 5589 55488 55</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="#" class="twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
       </div>
     </div>
-  </nav>
+  </div>
+
+  <!-- Header -->
+  <header id="header" class="sticky-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo me-auto"><a href="index.html">Clínica Jordan</a></h1>
+      
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Hogar</a></li>
+          <li><a class="nav-link scrollto" href="#about">Acerca de</a></li>
+          <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
+          <li><a class="nav-link scrollto" href="#departments">Departamentos</a></li>
+          <li><a class="nav-link scrollto" href="#doctors">Médicos</a></li>
+          <li class="dropdown"><a href="#"><span>Menú desplegable</span> <i class="fa-solid fa-chevron-down ms-1"></i></a>
+            <ul>
+              <li><a href="#">Opción 1</a></li>
+              <li><a href="#">Opción 2</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a href="portal.html" class="appointment-btn scrollto">Pedir hora</a>
+    </div>
+  </header>
 
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1 class="display-4">Tu Salud, Nuestra Prioridad</h1>
-      <p class="lead">Sistema integral de gestión de citas médicas para pacientes y profesionales de la salud.</p>
-      <a href="portal.html" class="btn btn-light btn-lg px-5 py-3 rounded-pill fw-bold text-primary shadow-sm">
-        <i class="fa-solid fa-calendar-check me-2"></i> Agendar Cita Ahora
-      </a>
+      <h1>BIENVENIDO A CLÍNICA JORDAN</h1>
+      <h2>Somos un equipo de profesionales que cuidamos tu salud de forma integral.</h2>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="servicios" class="container py-5 mt-5">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">Nuestros Servicios</h2>
-      <p class="text-muted">Atención médica de primera calidad con tecnología de punta.</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-4 text-center">
-        <i class="fa-solid fa-stethoscope feature-icon"></i>
-        <h4>Consulta General</h4>
-        <p class="text-muted">Atención primaria integral para todas tus necesidades de salud diarias y preventivas.</p>
+  <main id="main">
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>¿Por qué elegir Clínica Jordan?</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+              </p>
+              <div class="text-center">
+                <a href="#" class="more-btn">Más información <i class="fa-solid fa-chevron-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <h4>Corporis voluptates oficia eiusmod</h4>
+                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="fa-regular fa-gem"></i>
+                    <h4>Ullamco laboris ladore pan</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="fa-solid fa-hospital"></i>
+                    <h4>Labore consequatur incidid dolore</h4>
+                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4 text-center">
-        <i class="fa-solid fa-user-doctor feature-icon"></i>
-        <h4>Especialidades</h4>
-        <p class="text-muted">Contamos con médicos especialistas altamente capacitados en diversas áreas.</p>
-      </div>
-      <div class="col-md-4 text-center">
-        <i class="fa-solid fa-laptop-medical feature-icon"></i>
-        <h4>Portal Digital</h4>
-        <p class="text-muted">Gestiona tu historial clínico y tus próximas citas desde la comodidad de tu hogar.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p class="mb-0 text-muted">&copy; 2026 Clínica Jordan. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+    </section>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
